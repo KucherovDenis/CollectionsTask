@@ -66,20 +66,16 @@ public class FileHandler implements Iterable<String> {
      *
      * @return отсортированный список
      */
-    public List<String> sortWords() {
-        Set<String> words = new HashSet<>();
-        getWords(words);
-
-        List<String> sortedWords = new ArrayList<>(words);
-        sortedWords.sort(new Comparator<String>() {
+    public SortedSet<String> sortWords() {
+        SortedSet<String> result = new TreeSet<>(new Comparator<String>() {
             @Override
             public int compare(String o1, String o2) {
                 if (o1.length() == o2.length()) return o1.compareToIgnoreCase(o2);
                 else return o1.length() > o2.length() ? 1 : -1;
             }
         });
-
-        return sortedWords;
+        getWords(result);
+        return result;
     }
 
     /**

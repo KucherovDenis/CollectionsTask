@@ -97,7 +97,7 @@ public class Main {
     private static void printSortedWords(FileHandler fileHandler) {
         System.out.println(String.format(TASK_HEADER, taskCounter));
         System.out.println("Отсортированный список:");
-        List<String> sortedWords = fileHandler.sortWords();
+        SortedSet<String> sortedWords = fileHandler.sortWords();
         for (String word : sortedWords)
             System.out.println(word);
         System.out.println(TASK_SEPARATOR);
