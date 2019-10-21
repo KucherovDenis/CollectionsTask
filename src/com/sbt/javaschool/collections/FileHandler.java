@@ -132,6 +132,7 @@ public class FileHandler implements Iterable<String> {
         return result;
     }
 
+
     /**
      * Метод возвращает список строк файла в обратном порядке.
      *
@@ -141,6 +142,17 @@ public class FileHandler implements Iterable<String> {
         List<String> result = copy();
         Collections.reverse(result);
         return result;
+    }
+
+    /**
+     * Метод возвращает строку по заданному индексу.
+     * @param index номер строки
+     * @return возвращает строку, если строки по задданному индексу нет вернет {@code null}
+     */
+    public String getLine(int index) {
+        if (index < 0 || index >= lines.size()) {
+            return null;
+        } else return lines.get(index);
     }
 
     @Override

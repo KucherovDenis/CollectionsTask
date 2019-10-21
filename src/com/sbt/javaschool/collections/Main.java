@@ -157,11 +157,11 @@ public class Main {
         Scanner in = new Scanner(System.in);
         while (in.hasNextInt()) {
             lineNum = in.nextInt();
-            if (lineNum < 0 || lineNum >= lines.size()) {
-                System.out.println("Такой строки нет.");
-            } else {
-                System.out.println(lines.get(lineNum));
-            }
+
+            String line = fileHandler.getLine(lineNum);
+            if (line == null) System.out.println("Нет данных");
+            else System.out.println(line);
+
             System.out.println("Введите номер произвольной строки:");
         }
 
